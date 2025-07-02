@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AlignJustify, X } from "lucide-react";
-import DropDownMenu from "./Dro-down-menu";
+import DropDownMenu from "./Drop-down-menu";
 import { useScrollDirection } from "./hooks/useScrollDirection";
 
 interface NavbarProps {
