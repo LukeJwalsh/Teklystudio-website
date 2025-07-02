@@ -61,3 +61,58 @@ export const testimonialsData = [
     title: "Senior Software Engineer",
   },
 ];
+
+export const plans = [
+  {
+    index: 0,
+    name: "DevOps Starter",
+    price: "US $2,500",
+    features: [
+      "Infrastructure Design",
+      "CI/CD Pipeline Setup",
+      "Cloud Deployment",
+      "Monitoring & Logging",
+    ],
+    style:
+      "rounded-3xl py-10 bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-50",
+    description:
+      "Perfect for startups needing solid DevOps foundations — scalable, reliable, and automated.",
+    button: "Buy Now",
+  },
+  {
+    index: 1,
+    name: "Custom Development",
+    price: "US $6,500",
+    features: [
+      "UX/UI Design",
+      "Backend & Frontend",
+      "MVP Build",
+      "Quality Assurance",
+      "Dedicated Dev Team",
+    ],
+    style:
+      "rounded-3xl py-10 bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-50",
+    description:
+      "For businesses that need a fully built custom web or app solution, designed to scale.",
+    button: "Buy Now",
+  },
+  {
+    index: 2,
+    name: "Agentic AI Enterprise",
+    feature: "Contact Us",
+    price: "Custom Pricing",
+    features: [
+      "LLM Integration",
+      "Autonomous AI Agents",
+      "Predictive Analytics",
+      "Dedicated AI Engineer",
+      "Workflow Automation",
+      "Priority Support",
+    ],
+    style:
+      "h-full rounded-3xl py-10 flex flex-col bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-50",
+    description:
+      "Bespoke AI systems with agentic workflows — automate tasks, gain insights, and grow intelligently.",
+    button: "Contact Us",
+  },
+];

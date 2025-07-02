@@ -1,30 +1,37 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { AlignJustify, X } from 'lucide-react';
-import DropDownMenu from './Dro-down-menu';
-import { useScrollDirection } from './hooks/useScrollDirection';
-
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { AlignJustify, X } from "lucide-react";
+import DropDownMenu from "./Dro-down-menu";
+import { useScrollDirection } from "./hooks/useScrollDirection";
 
 interface NavbarProps {
   className?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ className }) => {
+const Navbar: React.FC<NavbarProps> = ({ }) => {
   const scrollDirection = useScrollDirection();
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
 
   const toggleDropDown = () => setIsDropDownVisible(!isDropDownVisible);
   const closeDropDown = () => setIsDropDownVisible(false);
 
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setIsDropDownVisible(false); // close mobile menu if open
+    }
+  };
+
   return (
     <header
-      className={`
-        fixed top-0 left-0 w-full z-50 transition-transform duration-300
-        ${scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"}
-      `}
+      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
+        scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
+      }`}
     >
       <div
         className="
@@ -37,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
       >
         <div className="p-4 md:p-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="cursor-pointer">
+          <div onClick={() => scrollToSection("home")} className="cursor-pointer">
             <Image
               src="/logo.svg"
               alt="Logo"
@@ -45,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               height={50}
               className="w-10 h-10 md:w-14 md:h-14"
             />
-          </Link>
+          </div>
 
           {/* Desktop Nav */}
           <div
@@ -56,12 +63,24 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50
             "
           >
-            <div className="hover:text-gray-50">Home</div>
-            <div className="hover:text-gray-50">About Us</div>
-            <div className="hover:text-gray-50">Services</div>
-            <Link href="/pricing" className="hover:text-gray-50">
+            <div
+              className="hover:text-gray-50 cursor-pointer"
+              onClick={() => scrollToSection("home")}
+            >
+              Home
+            </div>
+            <div
+              className="hover:text-gray-50 cursor-pointer"
+              onClick={() => scrollToSection("services")}
+            >
+              Services
+            </div>
+            <div
+              className="hover:text-gray-50 cursor-pointer"
+              onClick={() => scrollToSection("pricing")}
+            >
               Pricing
-            </Link>
+            </div>
           </div>
 
           {/* Contact Button */}

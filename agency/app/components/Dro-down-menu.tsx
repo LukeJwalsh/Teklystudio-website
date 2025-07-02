@@ -23,13 +23,13 @@ const DropDownMenu: React.FC<DropDownMenuProps> = ({ onClose }) => {
       transition={{ duration: 0.5 }}
     >
       <Link href="/pricing" className="hover:text-gray-800 text-2xl">
-        Pricing
+        Home
       </Link>
       <Link href="/contact" className="hover:text-gray-800 text-2xl">
-        Contact
+        Services
       </Link>
       <Link href="/book" className="hover:text-gray-800 text-2xl text-center">
-        Book a call
+        Prices
       </Link>
     </motion.div>
   )

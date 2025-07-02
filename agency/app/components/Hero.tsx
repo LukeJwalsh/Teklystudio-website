@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <section className="relative z-20 flex flex-col items-center text-center px-4 pt-20 md:pt-40 pb-20">
+        <section id="home" className="relative z-20 flex flex-col items-center text-center px-4 pt-20 md:pt-40 pb-20">
             <h1 className="pt-20 text-4xl md:text-7xl font-bold text-black">
                 Tekly Studio
             </h1>
@@ -15,7 +15,7 @@ const Hero = () => {
             </p>
             <div className="pt-2 hidden md:flex">
                 <Link
-                    href="/contact"
+                    href="/book"
                     
                 >
                     <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
