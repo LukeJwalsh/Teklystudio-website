@@ -7,7 +7,7 @@ import {
 
 const FAQS = () => {
   return (
-    <div className="mt-10 md:py-10 bg-zinc-50 w-full rounded-3xl">
+    <div id="faq" className="mt-10 md:py-10 bg-zinc-50 w-full rounded-3xl">
       <div className="p-10 md:p-4 md:px-20">
         <div className="text-3xl md:text-7xl font-bold text-black">
           Have questions?

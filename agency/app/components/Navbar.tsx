@@ -81,6 +81,12 @@ const Navbar: React.FC<NavbarProps> = ({ }) => {
             >
               Pricing
             </div>
+            <div
+              className="hover:text-gray-50 cursor-pointer"
+              onClick={() => scrollToSection("faq")}
+            >
+              FAQ
+            </div>
           </div>
 
           {/* Contact Button */}
