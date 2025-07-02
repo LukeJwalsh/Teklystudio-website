@@ -32,7 +32,6 @@ https://teklystudio-website.vercel.app/
 1. Clone the repository
 
    ```bash
-   Once cloned
    cd agency
    ```
 
@@ -40,7 +39,6 @@ https://teklystudio-website.vercel.app/
 
    ```bash
    npm install
-   SMTP_HOST=smtp.gmail.com 
    ```
 2.5 (optional) Set up .env.local if you want the contact form to be functional,
 
