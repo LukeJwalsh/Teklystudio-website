@@ -32,8 +32,8 @@ https://teklystudio-website.vercel.app/
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/teklystudio-website.git
-   cd teklystudio-website
+   Once cloned
+   cd agency
    ```
 
 2. Install dependencies
