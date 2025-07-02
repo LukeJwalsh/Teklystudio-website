@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/app/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export const InfiniteMovingCards = ({
   items,
@@ -25,11 +25,26 @@ export const InfiniteMovingCards = ({
 
   const [start, setStart] = useState(false);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
+  const getDirection = useCallback(() => {
+    if (containerRef.current) {
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
+    }
+  }, [direction]);
 
-  function addAnimation() {
+  const getSpeed = useCallback(() => {
+    if (containerRef.current) {
+      let duration = "40s";
+      if (speed === "fast") duration = "20s";
+      if (speed === "slow") duration = "80s";
+
+      containerRef.current.style.setProperty("--animation-duration", duration);
+    }
+  }, [speed]);
+
+  const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
       scrollerContent.forEach((item) => {
@@ -41,26 +56,11 @@ export const InfiniteMovingCards = ({
       getSpeed();
       setStart(true);
     }
-  }
+  }, [getDirection, getSpeed]);
 
-  const getDirection = () => {
-    if (containerRef.current) {
-      containerRef.current.style.setProperty(
-        "--animation-direction",
-        direction === "left" ? "forwards" : "reverse"
-      );
-    }
-  };
-
-  const getSpeed = () => {
-    if (containerRef.current) {
-      let duration = "40s";
-      if (speed === "fast") duration = "20s";
-      if (speed === "slow") duration = "80s";
-
-      containerRef.current.style.setProperty("--animation-duration", duration);
-    }
-  };
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
 
   return (
     <div
@@ -96,9 +96,7 @@ export const InfiniteMovingCards = ({
                 <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                   {item.name}
                 </span>
-                <span className="text-xs text-blue-500">
-                  {item.title}
-                </span>
+                <span className="text-xs text-blue-500">{item.title}</span>
               </div>
             </blockquote>
           </li>

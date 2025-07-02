@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main className="relative overflow-x-hidden">
       {/* Aurora should cover the entire page */}
-      <AuroraBackground className="fixed inset-0 -z-10" children={undefined} />
+      <AuroraBackground className="fixed inset-0 -z-10"/>
 
       <Navbar className="relative z-10" />
       <Hero/>

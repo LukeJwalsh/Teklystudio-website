@@ -36,20 +36,22 @@ export default function ContactForm() {
         setStatus("error");
       }
     } catch (err) {
+      console.error("Contact form submission failed:", err);
       setStatus("error");
     }
   };
+
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">Contact Us</h1>
       <p className="mb-8 text-neutral-700">
-        Let's start a conversation — we’d love to hear from you.
+         Let&apos;s start a conversation — we&apos;d love to hear from you.
       </p>
 
       {status === "success" ? (
         <div className="text-green-700 text-lg">
-          Thank you for your message! We'll be in touch soon!
+          Thank you for your message! We&apos;ll be in touch soon!
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
